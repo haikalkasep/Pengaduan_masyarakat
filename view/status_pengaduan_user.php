@@ -37,10 +37,12 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
                     <td class="py-2 px-4">
                         <?php if ($row['status'] == 'proses'): ?>
                             <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">Menunggu</span>
+                            <?php elseif ($row['status'] == 'valid'): ?>
+                            <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-semibold">valid</span>
                         <?php elseif ($row['status'] == '0'): ?>
-                            <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-semibold">gagal</span>
+                            <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
                         <?php elseif($row['status'] == 'selesai'): ?>
-                            <span class="bg-green-400 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">selesai</span>
+                           <a href="#"><span class="bg-grey-400 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span></a>
                         <?php endif; ?>
                     </td>
                 </tr>
