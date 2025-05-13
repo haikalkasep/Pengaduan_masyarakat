@@ -44,7 +44,8 @@ function tambahPengaduan($nik) {
     }
 
     $judul = htmlspecialchars($_POST['judul']);
-    $tgl_pengaduan = htmlspecialchars($_POST['tgl_pengaduan']);
+    $tanggal_laporan = date('Y-m-d');
+    $tgl_kejadian = htmlspecialchars($_POST['tgl_kejadian']);
     $isi_laporan = htmlspecialchars($_POST['isi_laporan']);
     $foto = upload();
     if (!$foto) {
@@ -52,7 +53,7 @@ function tambahPengaduan($nik) {
     }
 
     // masukkan data ke database dengan penanganan error
-    $query = "INSERT INTO pengaduan VALUES ('','$judul','$tgl_pengaduan','$nik','$isi_laporan','$foto','0')";
+    $query = "INSERT INTO pengaduan VALUES ('','$judul','$tanggal_laporan','$tgl_kejadian','$nik','$isi_laporan','$foto','0')";
 mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);

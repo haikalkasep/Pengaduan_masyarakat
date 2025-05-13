@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="mb-4">
                 <label for="tgl_pengaduan" class="block text-gray-700">Tanggal Kejadian</label>
-                <input type="date" id="tgl_pengaduan" name="tgl_pengaduan" class="w-full p-2 border border-gray-300 rounded mt-1">
+                <input type="date" id="tgl_pengaduan" name="tgl_kejadian" class="w-full p-2 border border-gray-300 rounded mt-1">
             </div>
             <div class="mb-4">
                 <label for="isi_laporan" class="block text-gray-700">Isi Laporan</label>
