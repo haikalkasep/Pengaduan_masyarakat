@@ -10,7 +10,7 @@
     <div class="text-center">
         <h1 class="text-3xl font-bold mb-4">TERIMAKASIH ATAS</h1>
         <h2 class="text-3xl font-bold mb-6">LAPORAN ANDA 😊</h2>
-        <a href="status.php" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+        <a href="status_pengaduan_user.php" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
             Cek Status
         </a>
     </div>

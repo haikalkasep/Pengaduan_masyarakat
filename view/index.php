@@ -71,7 +71,7 @@ if(!isset($_SESSION["login"])){
                 </div>
             </a>
             <!-- Card 2 -->
-            <a href="#" class="flex-1">
+            <a href="status_pengaduan_user.php" class="flex-1">
                 <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-md h-full">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />

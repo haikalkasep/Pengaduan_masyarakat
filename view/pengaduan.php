@@ -38,15 +38,15 @@ if (isset($_POST['submit'])) {
             <input type="hidenn" name="nik" value="<?= $nik ?>" hidden>
             <div class="mb-4">
                 <label for="judul" class="block text-gray-700">Judul Laporan</label>
-                <input type="text" id="judul" name="judul" class="w-full p-2 border border-gray-300 rounded mt-1">
+                <input type="text" id="judul" name="judul" class="w-full p-2 border border-gray-300 rounded mt-1" required>
             </div>
             <div class="mb-4">
                 <label for="tgl_pengaduan" class="block text-gray-700">Tanggal Kejadian</label>
-                <input type="date" id="tgl_pengaduan" name="tgl_kejadian" class="w-full p-2 border border-gray-300 rounded mt-1">
+                <input type="date" id="tgl_pengaduan" name="tgl_kejadian" class="w-full p-2 border border-gray-300 rounded mt-1" required>
             </div>
             <div class="mb-4">
                 <label for="isi_laporan" class="block text-gray-700">Isi Laporan</label>
-                <textarea id="isi_laporan" name="isi_laporan" class="w-full p-2 border border-gray-300 rounded mt-1" rows="4"></textarea>
+                <textarea id="isi_laporan" name="isi_laporan" class="w-full p-2 border border-gray-300 rounded mt-1" rows="4" required></textarea>
             </div>
             <div class="mb-4">
                 <label for="foto" class="block text-gray-700">Upload Foto</label>
