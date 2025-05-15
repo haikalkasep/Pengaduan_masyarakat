@@ -82,7 +82,7 @@ if(!isset($_SESSION["login"])){
                 </div>
             </a>
             <!-- Card 3 -->
-            <a href="#" class="flex-1">
+            <a href="lihat_tanggapan.php" class="flex-1">
                 <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-md h-full">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6m-3 8a9 9 0 100-18 9 9 0 000 18z" />

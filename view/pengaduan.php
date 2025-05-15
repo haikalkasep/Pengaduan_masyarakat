@@ -32,6 +32,11 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-200 flex items-center justify-center min-h-screen">
+    <div class="absolute top-6 left-6">
+        <a href="javascript:history.back()" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded">
+            &larr; Kembali
+        </a>
+    </div>
     <div class="bg-green-100 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 class="text-2xl font-bold mb-6">BUAT LAPORAN</h1>
         <form action="" method="post" enctype="multipart/form-data">

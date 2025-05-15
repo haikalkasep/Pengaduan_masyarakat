@@ -12,7 +12,7 @@ if(isset($_POST["submit"])){
             $_SESSION["role"] = $row["level"];
             $_SESSION["login"] = true;
             $_SESSION["nama"] = $nama;
-            header("Location: tanggapan.php");
+            header("Location: index_admin.php");
             exit;
         }
         $error = true;
