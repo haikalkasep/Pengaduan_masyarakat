@@ -35,19 +35,21 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data as $i => $row): ?>
+                <?php
+                $no = 1;
+                foreach ($data as $i): ?>
                 <tr class="border-b">
-                    <td class="py-2 px-4"><?= $i+1 ?></td>
-                    <td class="py-2 px-4"><?= htmlspecialchars($row['judul']) ?></td>
+                    <td class="py-2 px-4"><?= $no++ ?></td>
+                    <td class="py-2 px-4"><?= htmlspecialchars($i['judul']) ?></td>
                     <td class="py-2 px-4">
-                        <?php if ($row['status'] == 'proses'): ?>
+                        <?php if ($i['status'] == 'proses'): ?>
                             <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">Menunggu</span>
-                            <?php elseif ($row['status'] == 'valid'): ?>
+                            <?php elseif ($i['status'] == 'valid'): ?>
                             <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-semibold">valid</span>
-                        <?php elseif ($row['status'] == 'selesai'): ?>
+                        <?php elseif ($i['status'] == 'selesai'): ?>
                            <a href=""> <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span> </a>
                         <?php else: ?>
-                            <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
+                            <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
                         <?php endif; ?>
                     </td>
                 </tr>

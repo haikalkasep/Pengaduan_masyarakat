@@ -93,4 +93,19 @@ function tolak($query) {
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
+function tambah_tanggapan($data) {
+    global $conn;
+    $id_pengaduan = htmlspecialchars($data['id_pengaduan']);
+    $tanggapan = htmlspecialchars($data['tanggapan']);
+    $tanggal_tanggapan = date('Y-m-d');
+    $id_petugas = htmlspecialchars($data['id_user']);
+
+    // masukkan data ke database
+    mysqli_query($conn, "INSERT INTO tanggapan VALUES ('', '$id_pengaduan', '$tanggal_tanggapan', '$tanggapan', '$id_petugas')");
+
+    // update status pengaduan
+    mysqli_query($conn, "UPDATE pengaduan SET status = 'selesai' WHERE id_pengaduan = '$id_pengaduan'");
+
+    return mysqli_affected_rows($conn);
+}
 ?>

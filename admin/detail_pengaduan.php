@@ -6,17 +6,9 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["rol
     header("Location: login_admin.php");
     exit;
 }
-if (!isset($_GET['id'])) {
-    echo "ID pengaduan tidak ditemukan.";
-    exit;
-}
 
 $id = intval($_GET['id']);
 $data = tampil("SELECT * FROM pengaduan WHERE id_pengaduan = '$id'")[0];
-if (!$data) {
-    echo "Data pengaduan tidak ditemukan.";
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,19 +22,19 @@ if (!$data) {
     <table class="table table-bordered">
         <tr>
             <th>Judul</th>
-            <td><?php echo htmlspecialchars($data['judul']); ?></td>
+            <td><?php echo $data['judul']; ?></td>
         </tr>
         <tr>
             <th>Isi Laporan</th>
-            <td><?php echo nl2br(htmlspecialchars($data['isi_laporan'])); ?></td>
+            <td><?php echo $data['isi_laporan']; ?></td>
         </tr>
         <tr>
             <th>Tanggal</th>
-            <td><?php echo htmlspecialchars($data['tgl_kejadian']); ?></td>
+            <td><?php echo $data['tgl_kejadian']; ?></td>
         </tr>
         <tr>
             <th>Status</th>
-            <td><?php echo htmlspecialchars($data['status']); ?></td>
+            <td><?php echo $data['status']; ?></td>
         </tr>
         <tr>
             <th>Foto</th>
@@ -50,12 +42,12 @@ if (!$data) {
                 <?php if ($data["foto"] == "default.jpg"): ?>
                     tidak ada foto
                 <?php else: ?>
-                          <img src="../assets/img/<?php echo htmlspecialchars($data['foto']); ?>" width="300">
+                          <img src="../assets/img/<?php echo $data['foto']; ?>" width="300">
                 <?php endif; ?>
             </td>
         </tr>
     </table>
-    <a href="laporan_menunggu.php" class="btn btn-secondary">Kembali</a>
+    <button class="btn btn-secondary" onclick="window.history.back();">Kembali</button>
 </div>
 </body>
 </html>
