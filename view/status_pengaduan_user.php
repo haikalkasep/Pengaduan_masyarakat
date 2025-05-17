@@ -44,8 +44,10 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
                             <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">Menunggu</span>
                             <?php elseif ($row['status'] == 'valid'): ?>
                             <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-semibold">valid</span>
-                        <?php elseif ($row['status'] == '0'): ?>
-                            <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
+                        <?php elseif ($row['status'] == 'selesai'): ?>
+                           <a href=""> <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span> </a>
+                        <?php else: ?>
+                            <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
                         <?php endif; ?>
                     </td>
                 </tr>

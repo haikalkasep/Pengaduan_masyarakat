@@ -1,3 +1,15 @@
+<?php 
+session_start();
+require_once '../function/logic.php';
+// Cek apakah user sudah login
+// Cek apakah user adalah admin atau petugas
+if (!isset($_SESSION["role"]) || ($_SESSION["role"] !== "admin" && $_SESSION["role"] !== "petugas")) {
+    header("Location: login_admin.php");
+    exit;
+}
+$pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'proses'");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +20,7 @@
 </head>
 <body class="bg-green-300 min-h-screen">
     <div class="p-6 flex items-center">
-        <a href="javascript:history.back()" class="text-black text-3xl">
+        <a href="index_admin.php" class="text-black text-3xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
@@ -21,33 +33,29 @@
             <table class="w-full">
                 <thead>
                     <tr class="bg-gray-300 rounded-t-lg">
-                        <th class="py-3 px-4 text-left rounded-tl-lg">ID Pengaduan</th>
+                        <th class="py-3 px-4 text-left rounded-tl-lg">No</th>
                         <th class="py-3 px-4 text-left">Judul Pengaduan</th>
+                        <th class="py-3 px-4 text-left">Detail</th>
                         <th class="py-3 px-4 text-left rounded-tr-lg">Validasi</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
+                    <?php
+                    $no = 1;
+                    foreach($pengaduan as $row):
+                    ?>
                     <tr class="border-b">
-                        <td class="py-2 px-4">P001</td>
-                        <td class="py-2 px-4">Laporan Jalanan Rusak</td>
+                        <td class="py-2 px-4"><?php echo $no++ ?></td>
+                        <td class="py-2 px-4"><?php echo $row["judul"] ?></td>
                         <td class="py-2 px-4">
-                            <div class="bg-yellow-300 rounded-full h-6 w-28"></div>
+                            <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
+                        <td class="py-2 px-4">
+                            <?php if($row["status"] == 'proses'): ?>
+                            <a href="validasi_pengaduan.php?id=<?php echo $row['id_pengaduan']?>" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Validasi</a>
+                            <?php endif; ?>
                         </td>
                     </tr>
-                    <tr class="border-b">
-                        <td class="py-2 px-4">P002</td>
-                        <td class="py-2 px-4">Geng motor</td>
-                        <td class="py-2 px-4">
-                            <div class="bg-yellow-300 rounded-full h-6 w-28"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4">P003</td>
-                        <td class="py-2 px-4">Air keruh</td>
-                        <td class="py-2 px-4">
-                            <div class="bg-yellow-300 rounded-full h-6 w-28"></div>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

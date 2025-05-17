@@ -1,3 +1,20 @@
+<?php
+session_start();
+require_once '../function/logic.php';
+// Cek apakah user sudah login sebagai admin atau petugas
+if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["role"] !== "petugas") {
+    header("Location: login_admin.php");
+    exit;
+}
+// Data untuk dashboard
+$laporanMenunggu = count(tampil("SELECT * FROM pengaduan WHERE status ='proses' " ));
+$laporanValid = count(tampil("SELECT * FROM pengaduan WHERE status ='valid' ")); 
+$laporanDitolak = count(tampil("SELECT * FROM pengaduan WHERE status = '0'")); 
+$totalLaporan = $laporanMenunggu + $laporanValid + $laporanDitolak; 
+$jumlahAdmin = count(tampil("SELECT * FROM petugas WHERE level = 'admin'")); 
+$jumlahPetugas = count(tampil("SELECT * FROM petugas WHERE level = 'petugas'")); 
+$jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,31 +47,31 @@
             <h2 class="text-center text-2xl font-bold mb-6">Halaman Admin</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="laporan_menunggu.php" class="bg-yellow-400 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-yellow-300 cursor-pointer block">
-                    <p class="text-4xl font-bold">6</p>
+                    <p class="text-4xl font-bold"><?php echo $laporanMenunggu ?></p>
                     <p class="text-lg">Laporan Menunggu</p>
                 </a>
                 <a href="laporan_valid.php" class="bg-green-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-green-400 cursor-pointer block">
-                    <p class="text-4xl font-bold">2</p>
+                    <p class="text-4xl font-bold"><?php echo $laporanValid ?></p>
                     <p class="text-lg">Laporan Valid</p>
                 </a>
                 <a href="laporan_ditolak.php" class="bg-red-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-red-400 cursor-pointer block">
-                    <p class="text-4xl font-bold">1</p>
+                    <p class="text-4xl font-bold"><?php echo $laporanDitolak ?></p>
                     <p class="text-lg">Laporan Ditolak</p>
                 </a>
                 <a href="total_laporan.php" class="bg-blue-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-400 cursor-pointer block">
-                    <p class="text-4xl font-bold">9</p>
+                    <p class="text-4xl font-bold"><?php echo $totalLaporan ?></p>
                     <p class="text-lg">Total Laporan</p>
                 </a>
                 <a href="admin_list.php" class="bg-orange-400 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-orange-300 cursor-pointer block">
-                    <p class="text-4xl font-bold">3</p>
+                    <p class="text-4xl font-bold"><?php echo $jumlahAdmin ?></p>
                     <p class="text-lg">Jumlah Admin</p>
                 </a>
                 <a href="petugas_list.php" class="bg-purple-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-purple-400 cursor-pointer block">
-                    <p class="text-4xl font-bold">9</p>
+                    <p class="text-4xl font-bold"><?php echo $jumlahPetugas ?></p>
                     <p class="text-lg">Jumlah Petugas</p>
                 </a>
                 <a href="#" class="bg-indigo-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-indigo-400 cursor-pointer block">
-                    <p class="text-4xl font-bold">12</p>
+                    <p class="text-4xl font-bold"><?php echo $jumlahAdminPetugas ?></p>
                     <p class="text-lg">Total Admin & Petugas</p>
                 </a>
             </div>
@@ -67,7 +84,7 @@
             </svg>
             <p class="text-lg font-semibold mb-4">Apakah anda yakin ingin Logout?</p>
             <div class="flex justify-center gap-4">
-                <a href="login_admin.php" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">YA</a>
+                <a href="../view/logout.php" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">YA</a>
                 <button id="cancelLogout" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400">TIDAK</button>
             </div>
         </div>

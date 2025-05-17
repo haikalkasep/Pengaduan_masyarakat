@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pp";
+$database = "pp_masyarakat";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 function register($data) {
@@ -66,8 +66,13 @@ function upload() {
     // generate nama foto baru
     $namaFileBaru = uniqid();
     $namaFileBaru .= '.' . $ekstensiGambar;
+    if(!$namaFile) {
+        return 'default.jpg';
+    }else{
     move_uploaded_file($tmpName, '../assets/img/' . $namaFileBaru);
+
     return $namaFileBaru;
+    }
 }
 function tampil($query){
     global $conn;
@@ -77,5 +82,15 @@ function tampil($query){
         $rows[] = $row;
     }
     return $rows;
+}
+function valid($query) {
+    global $conn;
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+function tolak($query) {
+    global $conn;
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
 }
 ?>

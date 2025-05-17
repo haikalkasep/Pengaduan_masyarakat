@@ -9,6 +9,8 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["rol
     header("location: login_admin.php");
 }
 require_once '../function/logic.php';
+// ambil data laporan valid
+$valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
