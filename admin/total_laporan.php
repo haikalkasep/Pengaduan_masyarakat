@@ -11,7 +11,7 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["rol
 require_once '../function/logic.php';
 // ambil data laporan valid
 $id = $_SESSION["id"];
-$valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
+$semua_laporan = tampil("SELECT * FROM pengaduan");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +38,7 @@ $valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
                     <tr class="bg-gray-300 rounded-t-lg">
                         <th class="py-3 px-4 text-left rounded-tl-lg">No</th>
                         <th class="py-3 px-4 text-left">Judul Pengaduan</th>
+                        <th class="py-3 px-4 text-left">Status</th>
                         <th class="py-3 px-4 text-left">Detail</th>
                         <th class="py-3 px-4 text-left rounded-tr-lg">Jawab</th>
                     </tr>
@@ -45,13 +46,15 @@ $valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
                 <tbody class="bg-white">
                     <?php
                     $no = 1;
-                    foreach($valid as $row):
+                    foreach($semua_laporan as $row):
                     ?>
                     <tr class="border-b">
                         <td class="py-2 px-4"><?php echo $no++ ?></td>
                         <td class="py-2 px-4"><?php echo $row["judul"] ?></td>
+                        <td class="py-2 px-4"><?php echo $row["status"] ?></td>
                         <td class="py-2 px-4">
                             <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
+                        </td>
                         <td class="py-2 px-4">
                             <a href="jawab.php?id=<?php echo $row['id_pengaduan']?>" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">jawab</a>
                         </td>

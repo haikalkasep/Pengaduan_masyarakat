@@ -44,7 +44,7 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
         </header>
 
         <div class="container mx-auto mt-8">
-            <h2 class="text-center text-2xl font-bold mb-6">Halaman Admin</h2>
+            <h2 class="text-center text-2xl font-bold mb-6"> Selamat Datang Di Halaman Admin</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="laporan_menunggu.php" class="bg-yellow-400 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-yellow-300 cursor-pointer block">
                     <p class="text-4xl font-bold"><?php echo $laporanMenunggu ?></p>
@@ -58,7 +58,11 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
                     <p class="text-4xl font-bold"><?php echo $laporanDitolak ?></p>
                     <p class="text-lg">Laporan Ditolak</p>
                 </a>
-                <a href="total_laporan.php" class="bg-blue-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-400 cursor-pointer block">
+                <a href="laporan_selesai.php" class="bg-blue-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-500 cursor-pointer block">
+                    <p class="text-4xl font-bold"><?php echo $laporanMenunggu ?></p>
+                    <p class="text-lg">Laporan Selesai</p>
+                </a>
+                <a href="total_laporan.php" class="bg-white text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-white cursor-pointer block">
                     <p class="text-4xl font-bold"><?php echo $totalLaporan ?></p>
                     <p class="text-lg">Total Laporan</p>
                 </a>
@@ -70,7 +74,7 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
                     <p class="text-4xl font-bold"><?php echo $jumlahPetugas ?></p>
                     <p class="text-lg">Jumlah Petugas</p>
                 </a>
-                <a href="#" class="bg-indigo-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-indigo-400 cursor-pointer block">
+                <a href="adminpetugas_list.php" class="bg-indigo-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-indigo-400 cursor-pointer block">
                     <p class="text-4xl font-bold"><?php echo $jumlahAdminPetugas ?></p>
                     <p class="text-lg">Total Admin & Petugas</p>
                 </a>

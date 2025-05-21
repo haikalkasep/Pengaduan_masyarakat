@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pp";
+$database = "pp_masyarakat";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 function register($data) {

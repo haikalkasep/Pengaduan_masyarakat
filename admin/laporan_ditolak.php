@@ -1,24 +1,21 @@
-<?php
+<?php 
 session_start();
-// cek session
-if(!isset($_SESSION["login"])){
-    header("Location: login.php");
+require_once '../function/logic.php';
+// Cek apakah user sudah login
+// Cek apakah user adalah admin atau petugas
+if (!isset($_SESSION["role"]) || ($_SESSION["role"] !== "admin" && $_SESSION["role"] !== "petugas")) {
+    header("Location: login_admin.php");
     exit;
 }
-if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["role"] !== "petugas"){
-    header("location: login_admin.php");
-}
-require_once '../function/logic.php';
-// ambil data laporan valid
-$id = $_SESSION["id"];
-$valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
+$pengaduan = tampil("SELECT * FROM pengaduan WHERE status = '0'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan valid</title>
+    <title>Laporan Ditolak</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-300 min-h-screen">
@@ -30,8 +27,8 @@ $valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
         </a>
     </div>
     <div class="flex flex-col items-center">
-        <div class="w-12 h-12 bg-green-500 rounded-full mb-2"></div>
-        <h1 class="text-3xl font-bold text-black mb-6">Laporan valid</h1>
+        <div class="w-12 h-12 bg-red-500 rounded-full mb-2"></div>
+        <h1 class="text-3xl font-bold text-black mb-6">Laporan Ditolak</h1>
         <div class="bg-white rounded-2xl shadow-md w-full max-w-4xl p-8">
             <table class="w-full">
                 <thead>
@@ -39,13 +36,13 @@ $valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
                         <th class="py-3 px-4 text-left rounded-tl-lg">No</th>
                         <th class="py-3 px-4 text-left">Judul Pengaduan</th>
                         <th class="py-3 px-4 text-left">Detail</th>
-                        <th class="py-3 px-4 text-left rounded-tr-lg">Jawab</th>
+                        <th class="py-3 px-4 text-left rounded-tr-lg">Status</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
                     <?php
                     $no = 1;
-                    foreach($valid as $row):
+                    foreach($pengaduan as $row):
                     ?>
                     <tr class="border-b">
                         <td class="py-2 px-4"><?php echo $no++ ?></td>
@@ -53,8 +50,7 @@ $valid = tampil("SELECT * FROM pengaduan WHERE status = 'valid'");
                         <td class="py-2 px-4">
                             <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
                         <td class="py-2 px-4">
-                            <a href="jawab.php?id=<?php echo $row['id_pengaduan']?>" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">jawab</a>
-                        </td>
+                        <?php echo ($row["status"] == '0') ? 'Ditolak' : $row["status"]; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

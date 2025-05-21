@@ -16,7 +16,7 @@ if(isset($_POST["submit"])){
             exit;
         }
         $error = true;
-    }
+    } $error1 = true;
 }
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,9 @@ if(isset($_POST["submit"])){
         <h2 class="text-2xl font-bold text-center mb-2">Login</h2>
         <p class="text-sm text-center text-gray-600 mb-6">Please enter your Username and Password</p>
         <?php if(isset($error)): ?>
-        <p class="text-red-500 text-center mb-4">Invalid username or password</p>
+        <p class="text-red-500 text-center mb-4">Invalid password</p>
+        <?php elseif(isset($error1)): ?>
+        <p class="text-red-500 text-center mb-4">Username not registered</p>
         <?php endif; ?>
         <form action="" method="post" class="space-y-4">
             <div>
