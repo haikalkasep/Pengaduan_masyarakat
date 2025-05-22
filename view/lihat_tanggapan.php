@@ -8,7 +8,7 @@ if (!isset($_SESSION["nik"])) {
 }
 $nik = $_SESSION["nik"];
 // tampilkan data pengaduan berdasarkan nik
-$data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
+$data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik' and status = 'selesai' ORDER BY id_pengaduan DESC");
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +40,7 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
                     <td class="py-2 px-4"><?= $i+1 ?></td>
                     <td class="py-2 px-4"><?= htmlspecialchars($row['judul']) ?></td>
                     <td class="py-2 px-4">
-                        <?php if ($row['status'] == 'proses'): ?>
-                            <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">Menunggu</span>
-                        <?php elseif($row['status'] == 'selesai'): ?>
+                        <?php if ($row['status'] == 'selesai'): ?>
                            <a href="hasil_tanggapan.php"><span class="bg-grey-400 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span></a>
                         <?php endif; ?>
                     </td>

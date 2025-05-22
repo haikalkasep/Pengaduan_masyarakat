@@ -18,7 +18,7 @@ $semua_laporan = tampil("SELECT * FROM pengaduan");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan valid</title>
+    <title>Total Laporan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-300 min-h-screen">
@@ -30,8 +30,8 @@ $semua_laporan = tampil("SELECT * FROM pengaduan");
         </a>
     </div>
     <div class="flex flex-col items-center">
-        <div class="w-12 h-12 bg-green-500 rounded-full mb-2"></div>
-        <h1 class="text-3xl font-bold text-black mb-6">Laporan valid</h1>
+        <div class="w-12 h-12 bg-white rounded-full mb-2"></div>
+        <h1 class="text-3xl font-bold text-black mb-6">Total Laporan</h1>
         <div class="bg-white rounded-2xl shadow-md w-full max-w-4xl p-8">
             <table class="w-full">
                 <thead>
@@ -40,7 +40,6 @@ $semua_laporan = tampil("SELECT * FROM pengaduan");
                         <th class="py-3 px-4 text-left">Judul Pengaduan</th>
                         <th class="py-3 px-4 text-left">Status</th>
                         <th class="py-3 px-4 text-left">Detail</th>
-                        <th class="py-3 px-4 text-left rounded-tr-lg">Jawab</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -54,9 +53,6 @@ $semua_laporan = tampil("SELECT * FROM pengaduan");
                         <td class="py-2 px-4"><?php echo $row["status"] ?></td>
                         <td class="py-2 px-4">
                             <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
-                        </td>
-                        <td class="py-2 px-4">
-                            <a href="jawab.php?id=<?php echo $row['id_pengaduan']?>" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">jawab</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

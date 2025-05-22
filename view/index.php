@@ -19,7 +19,13 @@ if(!isset($_SESSION["login"])){
     <!-- Header -->
     <header class="bg-white border-b border-blue-500 flex items-center justify-between px-4 py-2">
         <div class="w-8"></div> <!-- placeholder for left side -->
-        <h1 class="font-bold text-3xl text-center flex-grow" style="font-family: 'Comic Sans MS', cursive, sans-serif;">Laporin!</h1>
+        <h1 class="font-bold text-3xl flex-grow" style="font-family: 'Comic Sans MS', cursive, sans-serif;">Laporin!</h1>
+        <!-- Navbar Links -->
+        <nav class="flex items-center space-x-8 mr-4">
+            <a href="profil.php" class="text-gray-700 hover:text-green-700 font-medium transition">Profil</a>
+            <a href="faq.php" class="text-gray-700 hover:text-green-700 font-medium transition">FAQ</a>
+            <a href="about.php" class="text-gray-700 hover:text-green-700 font-medium transition">About Us</a>
+        </nav>
         <div class="relative inline-block text-left">
             <button id="dropdownButton" type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" aria-expanded="true" aria-haspopup="true">
                 Menu

@@ -10,7 +10,8 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["rol
 $laporanMenunggu = count(tampil("SELECT * FROM pengaduan WHERE status ='proses' " ));
 $laporanValid = count(tampil("SELECT * FROM pengaduan WHERE status ='valid' ")); 
 $laporanDitolak = count(tampil("SELECT * FROM pengaduan WHERE status = '0'")); 
-$totalLaporan = $laporanMenunggu + $laporanValid + $laporanDitolak; 
+$laporanSelesai = count(tampil("SELECT * FROM pengaduan WHERE status = 'selesai'"));
+$totalLaporan = $laporanMenunggu + $laporanValid + $laporanDitolak + $laporanSelesai; 
 $jumlahAdmin = count(tampil("SELECT * FROM petugas WHERE level = 'admin'")); 
 $jumlahPetugas = count(tampil("SELECT * FROM petugas WHERE level = 'petugas'")); 
 $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas; 
@@ -27,7 +28,7 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
     <div id="mainContent">
         <header class="bg-white border-b border-blue-500 flex items-center justify-between px-4 py-2">
             <div class="w-8"></div> <!-- placeholder for left side -->
-            <h1 class="font-bold text-3xl text-center flex-grow" style="font-family: 'Comic Sans MS', cursive, sans-serif;">Laporin!</h1>
+            <h1 class="font-bold text-3xl flex-grow" style="font-family: 'Comic Sans MS', cursive, sans-serif;">Laporin!</h1>
             <div class="relative inline-block text-left">
                 <button id="dropdownButton" type="button" class="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" aria-expanded="true" aria-haspopup="true">
                     Menu
@@ -59,7 +60,7 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
                     <p class="text-lg">Laporan Ditolak</p>
                 </a>
                 <a href="laporan_selesai.php" class="bg-blue-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-500 cursor-pointer block">
-                    <p class="text-4xl font-bold"><?php echo $laporanMenunggu ?></p>
+                    <p class="text-4xl font-bold"><?php echo $laporanSelesai ?></p>
                     <p class="text-lg">Laporan Selesai</p>
                 </a>
                 <a href="total_laporan.php" class="bg-white text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-white cursor-pointer block">

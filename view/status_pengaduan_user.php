@@ -8,7 +8,7 @@ if (!isset($_SESSION["nik"])) {
 }
 $nik = $_SESSION["nik"];
 // tampilkan data pengaduan berdasarkan nik
-$data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
+$data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik' and status != 'selesai' ORDER BY id_pengaduan DESC");
 ?>
 
 <!DOCTYPE html>
@@ -46,9 +46,7 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik'");
                             <span class="bg-yellow-300 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">Menunggu</span>
                             <?php elseif ($i['status'] == 'valid'): ?>
                             <span class="bg-green-400 text-white px-3 py-1 rounded-full text-sm font-semibold">valid</span>
-                        <?php elseif ($i['status'] == 'selesai'): ?>
-                           <a href=""> <span class="bg-gray-400 text-white px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span> </a>
-                        <?php else: ?>
+                        <?php elseif ($i['status'] == '0'): ?>
                             <span class="bg-red-400 text-white px-3 py-1 rounded-full text-sm font-semibold">ditolak</span>
                         <?php endif; ?>
                     </td>

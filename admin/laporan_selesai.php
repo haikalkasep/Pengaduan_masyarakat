@@ -7,7 +7,7 @@ if (!isset($_SESSION["role"]) || ($_SESSION["role"] !== "admin" && $_SESSION["ro
     header("Location: login_admin.php");
     exit;
 }
-$pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'proses'");
+$pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'selesai'");
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ $pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'proses'");
                         <th class="py-3 px-4 text-left rounded-tl-lg">No</th>
                         <th class="py-3 px-4 text-left">Judul Pengaduan</th>
                         <th class="py-3 px-4 text-left">Detail</th>
-                        <th class="py-3 px-4 text-left rounded-tr-lg">Validasi</th>
+                        <th class="py-3 px-4 text-left rounded-tr-lg">Status</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white">
@@ -50,9 +50,7 @@ $pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'proses'");
                         <td class="py-2 px-4">
                             <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
                         <td class="py-2 px-4">
-                            <?php if($row["status"] == 'proses'): ?>
-                            <a href="validasi_pengaduan.php?id=<?php echo $row['id_pengaduan']?>" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Validasi</a>
-                            <?php endif; ?>
+                        <?php echo ($row["status"] == '0') ? 'Ditolak' : $row["status"]; ?></td>
                         </td>
                     </tr>
                     <?php endforeach; ?>
