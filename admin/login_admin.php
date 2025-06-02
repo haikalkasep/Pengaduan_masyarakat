@@ -11,6 +11,7 @@ if(isset($_POST["submit"])){
             // set session
             $_SESSION["role"] = $row["level"];
             $_SESSION["login"] = true;
+            $_SESSION["username"] = $row["nama_petugas"];
             $_SESSION["id"] = $row["id_petugas"];
             header("Location: index_admin.php");
             exit;

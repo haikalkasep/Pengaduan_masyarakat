@@ -1,3 +1,9 @@
+<?php 
+session_start();
+require_once '../function/logic.php';
+$id = $_GET['id_pengaduan'] = isset($_GET['id_pengaduan']) ? $_GET['id_pengaduan'] : null;
+$data = tampil("SELECT * FROM pengaduan WHERE id_pengaduan = $id")[0];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +54,7 @@
             </tbody>
         </table>
     </div>
-    <button class="mt-6 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" onclick="window.history.back();">Kembali</button>
+   <a href="lihat_tanggapan.php"><button class="mt-6 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">Kembali</button></a>
 </div>
 </body>
 </html>

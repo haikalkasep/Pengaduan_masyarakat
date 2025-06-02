@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pp";
+$database = "pp_masyarakat";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 function register($data) {
@@ -105,6 +105,50 @@ function tambah_tanggapan($data) {
 
     // update status pengaduan
     mysqli_query($conn, "UPDATE pengaduan SET status = 'selesai' WHERE id_pengaduan = '$id_pengaduan'");
+
+    return mysqli_affected_rows($conn);
+}
+function tambah_admin($data) {
+    global $conn;
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $nama_admin = htmlspecialchars($data['nama']);
+    $telepon = htmlspecialchars($data['telp']);
+
+
+    // masukkan data ke database
+    mysqli_query($conn, "INSERT INTO petugas VALUES('', '$nama_admin', '$username', '$password','$telepon','admin')");
+
+    return mysqli_affected_rows($conn);
+}
+function edit_admin($data) {
+    global $conn;
+    $id_petugas = htmlspecialchars($data['id_petugas']);
+    $nama = htmlspecialchars($data['nama']);
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $telp = htmlspecialchars($data['telp']);
+    $password_lama = htmlspecialchars($data['password_lama']);
+    // jika password tidak diubah, gunakan password lama
+    if ($password == '') {
+        $password = $password_lama;
+    }
+
+    // update data admin
+    mysqli_query($conn, "UPDATE petugas SET nama_petugas = '$nama', username = '$username', password = '$password', telp = '$telp' WHERE id_petugas = '$id_petugas'");
+
+    return mysqli_affected_rows($conn);
+}
+function tambah_petugas($data) {
+    global $conn;
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $nama_admin = htmlspecialchars($data['nama']);
+    $telepon = htmlspecialchars($data['telp']);
+
+
+    // masukkan data ke database
+    mysqli_query($conn, "INSERT INTO petugas VALUES('', '$nama_admin', '$username', '$password','$telepon','petugas')");
 
     return mysqli_affected_rows($conn);
 }

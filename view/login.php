@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
         <form action="" method="post" class="space-y-4">
             <div>
                 <label for="nik" class="block text-sm font-medium">NIK:</label>
-                <input type="text" name="nik" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" name="nik" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div>
                 <label for="password" class="block text-sm font-medium">Password:</label>

@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         <form action="" method="post" class="space-y-4">
             <div>
                 <label for="nik" class="block text-sm font-medium">NIK:</label>
-                <input type="text" name="nik" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" name="nik" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div>
                 <label for="nama_lengkap" class="block text-sm font-medium">Full Name:</label>
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div>
                 <label for="telepon" class="block text-sm font-medium">Phone:</label>
-                <input type="text" name="telepon" id="telepon" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="number" name="telepon" id="telepon" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <button name="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Register</button>
         </form>

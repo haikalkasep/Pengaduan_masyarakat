@@ -20,7 +20,7 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik' and status = 'selesai
 </head>
 <body class="bg-green-200 min-h-screen flex items-center justify-center">
                 <div class="absolute top-6 left-6">
-        <a href="javascript:history.back()" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded">
+        <a href="index.php" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded">
             &larr; Kembali
         </a>
     </div>
@@ -35,13 +35,15 @@ $data = tampil("SELECT * FROM pengaduan WHERE nik = '$nik' and status = 'selesai
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data as $i => $row): ?>
+                <?php
+                $i = 1;
+                 foreach ($data as $ikan): ?>
                 <tr class="border-b">
-                    <td class="py-2 px-4"><?= $i+1 ?></td>
-                    <td class="py-2 px-4"><?= htmlspecialchars($row['judul']) ?></td>
+                    <td class="py-2 px-4"><?= $i++ ?></td>
+                    <td class="py-2 px-4"><?= htmlspecialchars($ikan['judul']) ?></td>
                     <td class="py-2 px-4">
-                        <?php if ($row['status'] == 'selesai'): ?>
-                           <a href="hasil_tanggapan.php"><span class="bg-grey-400 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span></a>
+                        <?php if ($ikan['status'] == 'selesai'): ?>
+                           <a href="hasil_tanggapan.php?id_pengaduan=<?php echo $ikan["id_pengaduan"] ?>"><span class="bg-grey-400 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">cek tanggapan</span></a>
                         <?php endif; ?>
                     </td>
                 </tr>

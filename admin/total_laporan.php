@@ -50,7 +50,7 @@ $semua_laporan = tampil("SELECT * FROM pengaduan");
                     <tr class="border-b">
                         <td class="py-2 px-4"><?php echo $no++ ?></td>
                         <td class="py-2 px-4"><?php echo $row["judul"] ?></td>
-                        <td class="py-2 px-4"><?php echo $row["status"] ?></td>
+                        <td><?php echo ($row["status"] == '0') ? 'Ditolak' : $row["status"]; ?></td>
                         <td class="py-2 px-4">
                             <a href="detail_pengaduan.php?id=<?php echo $row['id_pengaduan'] ?>" class="text-blue-500 hover:underline">Lihat Detail</a>
                         </td>
