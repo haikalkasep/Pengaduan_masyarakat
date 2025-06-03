@@ -16,7 +16,7 @@ if(tambah_tanggapan($_POST) > 0){
           </script>";
 } else {
     echo "<script>
-            alert('Tanggapan gagal dikirim');
+            alert('Tanggapan galagal dikirim');
             document.location.href = 'laporan_valid.php';
           </script>";
 }
