@@ -16,12 +16,12 @@
             <!-- Glow/Gradient effect -->
             <div class="absolute w-40 h-40 rounded-full bg-gradient-to-tr from-green-300 via-green-100 to-green-400 blur-2xl opacity-70 -z-10"></div>
             <div class="relative group transition-all duration-300">
-                <div class="w-36 h-36 rounded-full border-8 border-green-400 bg-green-50 flex items-center justify-center overflow-hidden shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:border-green-600 ring-4 ring-green-200 group-hover:ring-green-400">
-                    <img src="../assets/img/Istri axyl-san.jpg" alt="Waifu" class="object-cover w-full h-full transition-all duration-300 group-hover:scale-110">
+                <div class="flex items-center justify-center">
+                    <img src="../assets/img/Logo_Laporin-removebg-preview.png" alt="logo" class="w-56 h-56 object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-lg bg-transparent border-none rounded-none shadow-none">
                 </div>
                 <div class="mt-3 text-center">
                     <span class="text-green-700 font-bold text-lg italic drop-shadow-lg tracking-wide bg-white/70 px-4 py-1 rounded-full border border-green-200 shadow">
-                        KAWAIIII
+                        Laporin!
                     </span>
                 </div>
             </div>

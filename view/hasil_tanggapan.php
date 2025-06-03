@@ -47,7 +47,31 @@ $data = tampil("SELECT * FROM pengaduan WHERE id_pengaduan = $id")[0];
                         <?php if ($data["foto"] == "default.jpg"): ?>
                             <span class="text-gray-500 italic">tidak ada foto</span>
                         <?php else: ?>
-                            <img src="../assets/img/<?php echo $data['foto']; ?>" class="w-72 rounded shadow" alt="Foto Pengaduan">
+                            <img src="../assets/img/<?php echo $data['foto']; ?>" class="w-72 rounded shadow cursor-zoom-in transition-transform hover:scale-105" alt="Foto Pengaduan" id="fotoPengaduan">
+                            <!-- Modal Zoom -->
+                            <div id="modalZoom" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+                                <span class="absolute top-6 right-8 text-white text-3xl cursor-pointer font-bold" id="closeModal">&times;</span>
+                                <img src="../assets/img/<?php echo $data['foto']; ?>" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl border-4 border-white" alt="Zoom Foto">
+                            </div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <?php
+                // Ambil tanggapan dari database
+                $tanggapan = tampil("SELECT * FROM tanggapan WHERE id_pengaduan = $id");
+                ?>
+                <tr class="border-b">
+                    <th class="text-left px-6 py-4 bg-green-50">Tanggapan</th>
+                    <td class="px-6 py-4">
+                        <?php if (!empty($tanggapan)): ?>
+                            <?php foreach ($tanggapan as $t): ?>
+                                <div class="mb-2">
+                                    <span class="block text-gray-700"><?php echo htmlspecialchars($t['tanggapan']); ?></span>
+                                    <span class="text-xs text-gray-400">Oleh: <?php echo htmlspecialchars($t['nama_petugas'] ?? 'Petugas'); ?>, <?php echo htmlspecialchars($t['tgl_tanggapan']); ?></span>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <span class="text-gray-500 italic">Belum ada tanggapan</span>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -56,5 +80,25 @@ $data = tampil("SELECT * FROM pengaduan WHERE id_pengaduan = $id")[0];
     </div>
    <a href="lihat_tanggapan.php"><button class="mt-6 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">Kembali</button></a>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var img = document.getElementById('fotoPengaduan');
+    var modal = document.getElementById('modalZoom');
+    var closeBtn = document.getElementById('closeModal');
+    if(img && modal && closeBtn) {
+        img.onclick = function() {
+            modal.classList.remove('hidden');
+        };
+        closeBtn.onclick = function() {
+            modal.classList.add('hidden');
+        };
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    }
+});
+</script>
 </body>
 </html>

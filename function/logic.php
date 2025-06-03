@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pp_masyarakat";
+$database = "pp";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 function register($data) {
@@ -157,6 +157,12 @@ function tambah_petugas($data) {
     // masukkan data ke database
     mysqli_query($conn, "INSERT INTO petugas VALUES('', '$nama_admin', '$username', '$password','$telepon','petugas')");
 
+    return mysqli_affected_rows($conn);
+}
+function hapus_akun_petugas($id) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM tanggapan WHERE id_petugas = '$id'");
+    mysqli_query($conn, "DELETE FROM petugas WHERE id_petugas = '$id'");
     return mysqli_affected_rows($conn);
 }
 ?>

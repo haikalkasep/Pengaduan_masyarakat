@@ -6,6 +6,11 @@ if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin" && $_SESSION["rol
     header("Location: login_admin.php");
     exit;
 }
+// Cek apakah user sudah login
+if (!isset($_SESSION["login"]) || $_SESSION["login"] !== true) {
+    header("Location: login_admin.php");
+    exit;
+}
 // Data untuk dashboard
 $laporanMenunggu = count(tampil("SELECT * FROM pengaduan WHERE status ='proses' " ));
 $laporanValid = count(tampil("SELECT * FROM pengaduan WHERE status ='valid' ")); 

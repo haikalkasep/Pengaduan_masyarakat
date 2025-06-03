@@ -49,6 +49,9 @@ if(isset($_POST["submit"])){
             </div>
             <button type="submit" name="submit" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">Login</button>
         </form>
+            <div class="text-center mt-4">
+            <a href="../view/login.php" class="text-sm text-blue-500 hover:underline">Login sebagai masyarakat</a>
+        </div>
     </div>
 </body>
 </html>
