@@ -2,9 +2,9 @@
 session_start();
 require_once '../function/logic.php';
 if(isset($_POST['submit'])){
-    $nik = $_POST["nik"];
+    $username = $_POST["username"];
     $password = $_POST["password"];
-    $result = mysqli_query($conn, "SELECT * FROM masyarakat WHERE nik = '$nik'");
+    $result = mysqli_query($conn, "SELECT * FROM masyarakat WHERE username = '$username'");
     // cek nik
     if(mysqli_num_rows(($result)) > 0){
         //cek password
@@ -36,12 +36,12 @@ if(isset($_POST['submit'])){
         <?php if(isset($error)): ?>
         <p class="text-red-500 text-center mb-4">Password salah</p>
         <?php elseif(isset($error1)): ?>
-        <p class="text-red-500 text-center mb-4">NIK tidak terdaftar</p>
+        <p class="text-red-500 text-center mb-4">user tidak terdaftar</p>
         <?php endif; ?>
         <form action="" method="post" class="space-y-4">
             <div>
                 <label for="nik" class="block text-sm font-medium">NIK:</label>
-                <input type="number" name="nik" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="text" name="username" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div>
                 <label for="password" class="block text-sm font-medium">Password:</label>

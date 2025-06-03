@@ -14,8 +14,15 @@ function register($data) {
     $telepon = htmlspecialchars($data['telepon']);
 
     // cek nik sudah ada
-    $result = mysqli_query($conn, "SELECT nik FROM masyarakat WHERE nik = '$nik'");
+    $result = mysqli_query($conn, "SELECT*FROM masyarakat WHERE username = '$name'");
     if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+                alert('username sudah terdaftar');
+              </script>";
+        return false;
+    }
+    $res8olt = mysqli_query($conn, "SELECT*FROM masyarakat WHERE nik = '$nik'");
+    if (mysqli_fetch_assoc($res8olt)) {
         echo "<script>
                 alert('nik sudah terdaftar');
               </script>";
