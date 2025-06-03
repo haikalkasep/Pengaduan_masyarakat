@@ -12,12 +12,12 @@ if(isset($_POST["kirim"])){
 if(tambah_tanggapan($_POST) > 0){
     echo "<script>
             alert('Tanggapan berhasil dikirim');
-            document.location.href = 'laporan_menunggu.php';
+            document.location.href = 'laporan_valid.php';
           </script>";
 } else {
     echo "<script>
             alert('Tanggapan gagal dikirim');
-            document.location.href = 'laporan_menunggu.php';
+            document.location.href = 'laporan_valid.php';
           </script>";
 }
 }
