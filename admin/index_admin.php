@@ -36,7 +36,7 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
         </svg>
         <span class="font-semibold text-lg">Akses ditolak!</span>
-        <span class="ml-2">Silakan login sebagaii <b>admin</b> untuk mengakses halaman ini.</span>
+        <span class="ml-2">Silakan login sebagai <b>admin</b> untuk mengakses halaman ini.</span>
     </div>
     <?php endif; ?>
     <div id="mainContent">
