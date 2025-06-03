@@ -20,9 +20,26 @@ if(!isset($_SESSION["login"])){
     <header class="bg-white border-b border-blue-500 flex items-center justify-between px-4 py-2">
         <div class="w-8"></div> <!-- placeholder for left side -->
         <h1 class="font-bold text-3xl flex-grow" style="font-family: 'Comic Sans MS', cursive, sans-serif;">Laporin!</h1>
+        <a href="edit_profile.php" class="flex items-center mr-4">
+        <div class="flex items-center mr-4">
+            <div class="flex items-center bg-green-100 rounded-xl px-4 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9 9 0 1112 21a9 9 0 01-6.879-3.196z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div class="flex flex-col items-start">
+                    <span class="font-bold text-green-700 text-base">
+                        <?php echo htmlspecialchars($_SESSION['username']); ?>
+                    </span>
+                    <span class="text-gray-600 text-sm">
+                        masyarakat
+                    </span>
+                </div>
+            </div>
+        </div>
+        </a>
         <!-- Navbar Links -->
         <nav class="flex items-center space-x-8 mr-4">
-            <a href="profil.php" class="text-gray-700 hover:text-green-700 font-medium transition">Profil</a>
             <a href="faq.php" class="text-gray-700 hover:text-green-700 font-medium transition">FAQ</a>
             <a href="about.php" class="text-gray-700 hover:text-green-700 font-medium transition">About Us</a>
         </nav>

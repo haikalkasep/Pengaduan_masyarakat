@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "pp";
+$database = "pp_masyarakat";
 $conn = mysqli_connect($server, $username, $password, $database);
 
 function register($data) {
@@ -163,6 +163,33 @@ function hapus_akun_petugas($id) {
     global $conn;
     mysqli_query($conn, "DELETE FROM tanggapan WHERE id_petugas = '$id'");
     mysqli_query($conn, "DELETE FROM petugas WHERE id_petugas = '$id'");
+    return mysqli_affected_rows($conn);
+}
+function hapus_akun_masyarakat($nik) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM pengaduan WHERE nik = '$nik'");
+    mysqli_query($conn, "DELETE FROM masyarakat WHERE nik = '$nik'");
+    return mysqli_affected_rows($conn);
+}
+function editProfile_masyarakat($data) {
+    global $conn;
+    $nik = htmlspecialchars($data['nik']);
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $nama_lengkap = htmlspecialchars($data['nama_lengkap']);
+    $telepon = htmlspecialchars($data['telepon']);
+
+    // jika password tidak diubah, gunakan password lama
+    if ($password == '') {
+        $password = tampil("SELECT password FROM masyarakat WHERE nik = '$nik'")[0]['password'];
+    } else {
+        // enkripsi password
+        $password = password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    // update data masyarakat
+    mysqli_query($conn, "UPDATE masyarakat SET username = '$username', password = '$password', nama = '$nama_lengkap', telp = '$telepon' WHERE nik = '$nik'");
+
     return mysqli_affected_rows($conn);
 }
 ?>

@@ -13,6 +13,7 @@ if(isset($_POST['submit'])){
             // set session
             $_SESSION["login"] = true;
             $_SESSION["nik"] = $row["nik"];
+            $_SESSION["username"] = $row["username"];
             header("Location: index.php");
             exit;
         }
@@ -40,8 +41,8 @@ if(isset($_POST['submit'])){
         <?php endif; ?>
         <form action="" method="post" class="space-y-4">
             <div>
-                <label for="nik" class="block text-sm font-medium">NIK:</label>
-                <input type="text" name="username" id="nik" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <label for="username" class="block text-sm font-medium">Username:</label>
+                <input type="text" name="username" id="username" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div>
                 <label for="password" class="block text-sm font-medium">Password:</label>

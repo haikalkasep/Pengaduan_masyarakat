@@ -58,6 +58,15 @@
                     Kembali ke Beranda
                 </a>
             </div>
+            <!-- Waifu Section Start -->
+            <div class="mt-10 flex flex-col items-center">
+                <h4 class="text-xl font-bold text-green-700 mb-2">Istri saya</h4>
+                <div class="flex flex-col items-center bg-green-50 rounded-xl shadow p-4 border border-green-200">
+                    <img src="../assets/img/Istri axyl-san.jpg" alt="Waifu" class="w-32 h-32 object-cover rounded-full border-4 border-green-300 shadow-lg mb-2">
+                    <span class="font-semibold text-green-800 text-lg">nao notori</span>
+                </div>
+            </div>
+            <!-- Waifu Section End -->
         </div>
     </div>
     <script>
