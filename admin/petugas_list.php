@@ -15,7 +15,7 @@ $admins = tampil("SELECT * FROM petugas WHERE level = 'petugas'");
     <title>Data Petugas</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 min-h-screen flex flex-col">
+<body class="bg-green-200 font-sans">
     <div class="container mx-auto mt-10 max-w-3xl">
         <h2 class="text-2xl font-bold mb-6 text-green-800">Daftar Petugas</h2>
         <div class="mb-4 flex justify-end">
@@ -26,7 +26,7 @@ $admins = tampil("SELECT * FROM petugas WHERE level = 'petugas'");
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <table class="min-w-full">
                 <thead>
-                    <tr class="bg-green-100">
+                    <tr class="bg-white">
                         <th class="px-6 py-3 text-left font-semibold text-green-800">No</th>
                         <th class="px-6 py-3 text-left font-semibold text-green-800">Nama Petugas</th>
                         <th class="px-6 py-3 text-left font-semibold text-green-800">Username</th>

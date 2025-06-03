@@ -15,7 +15,7 @@ $admins = tampil("SELECT * FROM petugas WHERE level = 'admin'");
     <title>Data Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-50 min-h-screen flex flex-col">
+<body class="bg-green-200 font-sans">
     <div class="container mx-auto mt-10 max-w-3xl">
         <h2 class="text-2xl font-bold mb-6 text-green-800">Daftar Admin</h2>
         <div class="mb-4 flex justify-end">

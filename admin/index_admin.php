@@ -104,10 +104,6 @@ $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas;
                     <p class="text-4xl font-bold"><?php echo $jumlahPetugas ?></p>
                     <p class="text-lg">Jumlah Petugas</p>
                 </a>
-                <a href="adminpetugas_list.php" class="bg-indigo-500 text-center p-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-indigo-400 cursor-pointer block">
-                    <p class="text-4xl font-bold"><?php echo $jumlahAdminPetugas ?></p>
-                    <p class="text-lg">Total Admin & Petugas</p>
-                </a>
             </div>
         </div>
     </div>

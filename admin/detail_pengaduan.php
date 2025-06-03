@@ -30,7 +30,7 @@ $tanggapan = $tanggapanArr ? $tanggapanArr[0] : null;
 <body class="bg-green-100 min-h-screen flex flex-col">
 <div class="container mx-auto mt-10 max-w-2xl">
     <h2 class="text-2xl font-bold mb-6 text-green-800">Detail Pengaduan</h2>
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden relative">
         <table class="min-w-full">
             <tbody>
                 <tr class="border-b">
@@ -71,7 +71,7 @@ $tanggapan = $tanggapanArr ? $tanggapanArr[0] : null;
                     <?php if($data["status"] !== "selesai" ): ?>
                     <td class="px-6 py-4">belum ada tanggapan</td>
                     <?php elseif($data["status"] == "selesai" ): ?>
-                    <td class="px-6 py-4"><?php echo $tanggapan['tanggapan']; ?></td>
+                    <td class="px-6 py-4"><?php echo $tanggapan['tanggapan'] ?? "Tidak ada Tanggapan"; ?></td>
                     <?php endif; ?>
                 </tr>
                 <tr>
@@ -91,8 +91,14 @@ $tanggapan = $tanggapanArr ? $tanggapanArr[0] : null;
                 </tr>
             </tbody>
         </table>
+        <!-- Button Cetak Laporan dipindahkan ke bawah -->
     </div>
-    <button class="mt-6 px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" onclick="window.history.back();">Kembali</button>
+    <div class="mt-6 flex justify-end gap-4">
+        <a href="cetak_detail.php?id=<?php echo $id ?>"><button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition shadow">
+            Cetak Laporan
+        </button></a>
+        <button class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" onclick="window.history.back();">Kembali</button>
+    </div>
 </div>
 <script>
     const foto = document.getElementById('fotoPengaduan');

@@ -18,7 +18,7 @@ $pengaduan = tampil("SELECT * FROM pengaduan WHERE status = 'proses'");
     <title>Laporan Menunggu</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-green-300 min-h-screen">
+<body class="bg-green-200 font-sans">
     <div class="p-6 flex items-center">
         <a href="index_admin.php" class="text-black text-3xl">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
