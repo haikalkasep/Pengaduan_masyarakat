@@ -1,11 +1,12 @@
 <?php
+require_once '../function/logic.php';
 session_start();
 // cek session
 if(!isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
-$username = tampil("SELECT username FROM masyarakat WHERE nik = '{$_SESSION['nik']}'");
+$username = tampil("SELECT username FROM masyarakat WHERE nik = '{$_SESSION['nik']}'")(0)['username'] ?? 'User Tidak Ditemukan';
 ?>
 <!DOCTYPE html>
 <html lang="en">
