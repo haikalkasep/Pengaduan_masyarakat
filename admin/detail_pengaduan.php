@@ -98,9 +98,9 @@ $tanggapan = $tanggapanArr ? $tanggapanArr[0] : null;
         <a href="cetak_detail.php?id=<?php echo $id ?>"><button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition shadow">
             Cetak Laporan
         </button></a>
-        <button class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" onclick="window.history.back();">Kembali</button>
     </div>
     <?php endif; ?>
+    <button class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition mt-4" onclick="window.history.back();">Kembali</button>
 </div>
 <script>
     const foto = document.getElementById('fotoPengaduan');
