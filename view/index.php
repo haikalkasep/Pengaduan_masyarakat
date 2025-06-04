@@ -5,6 +5,7 @@ if(!isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
+$username = tampil("SELECT username FROM masyarakat WHERE nik = '{$_SESSION['nik']}'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +30,7 @@ if(!isset($_SESSION["login"])){
                 </svg>
                 <div class="flex flex-col items-start">
                     <span class="font-bold text-green-700 text-base">
-                        <?php echo htmlspecialchars($_SESSION['username']); ?>
+                        <?php echo $username; ?>
                     </span>
                     <span class="text-gray-600 text-sm">
                         masyarakat

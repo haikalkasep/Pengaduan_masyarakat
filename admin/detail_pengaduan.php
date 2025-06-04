@@ -93,12 +93,14 @@ $tanggapan = $tanggapanArr ? $tanggapanArr[0] : null;
         </table>
         <!-- Button Cetak Laporan dipindahkan ke bawah -->
     </div>
+    <?php if($data["status"] == 'selesai'): ?>
     <div class="mt-6 flex justify-end gap-4">
         <a href="cetak_detail.php?id=<?php echo $id ?>"><button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition shadow">
             Cetak Laporan
         </button></a>
         <button class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" onclick="window.history.back();">Kembali</button>
     </div>
+    <?php endif; ?>
 </div>
 <script>
     const foto = document.getElementById('fotoPengaduan');
