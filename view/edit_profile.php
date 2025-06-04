@@ -25,8 +25,7 @@ if(isset($_POST["submit"])){
 </head>
 <body>
     <form action="" method="post">
-        <label for="nik">nik</label>
-        <input type="number" name="nik" id="nik" value="<?= $data['nik'] ?? 'nik tidak ditemukan' ?>"><br>
+        <input type="hidden" name="nik" id="nik" value="<?= $data['nik'] ?? 'nik tidak ditemukan' ?>"><br>
         <label for="username">username</label>
         <input type="username" name="username" id="username" value="<?= $data['username'] ?? 'username tidak ditemukan' ?>"><br>
                 <label for="password">password</label>
@@ -36,6 +35,7 @@ if(isset($_POST["submit"])){
         <label for="telepon">telepon</label>
         <input type="number" name="telepon" id="telepon" value="<?= $data['telp'] ?? 'nomor telepon tidak ditemukan' ?>"><br>
         <button type="submit" name="submit">Simpan</button>
+        <a href="index.php">Kembali</a>
     </form>
 </body>
 </html>
