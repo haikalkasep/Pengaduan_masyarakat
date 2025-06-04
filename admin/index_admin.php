@@ -20,7 +20,9 @@ $totalLaporan = $laporanMenunggu + $laporanValid + $laporanDitolak + $laporanSel
 $jumlahAdmin = count(tampil("SELECT * FROM petugas WHERE level = 'admin'")); 
 $jumlahPetugas = count(tampil("SELECT * FROM petugas WHERE level = 'petugas'")); 
 $jumlahAdminPetugas = $jumlahAdmin + $jumlahPetugas; 
-$username = tampil("SELECT*FROM petugas WHERE id_petugas = '".$_SESSION['id']."'")[0]['username'] ?? 'User';
+// Ambil username petugas yang sedang login
+$id = $_SESSION['id'];
+$username = tampil("SELECT username FROM petugas WHERE id_petugas = $id")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +54,7 @@ $username = tampil("SELECT*FROM petugas WHERE id_petugas = '".$_SESSION['id']."'
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                        <div class="font-semibold leading-tight"><?php echo $username; ?></div>
+                        <div class="font-semibold leading-tight"><?php echo $username["username"]; ?></div>
                         <div class="text-xs text-gray-500 capitalize leading-tight"><?php echo htmlspecialchars($_SESSION['role'] ?? ''); ?></div>
                     </div>
                 </div></a>

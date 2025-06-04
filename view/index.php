@@ -6,7 +6,8 @@ if(!isset($_SESSION["login"])){
     header("Location: login.php");
     exit;
 }
-$username = tampil("SELECT username FROM masyarakat WHERE nik = '{$_SESSION['nik']}'")(0)['username'] ?? 'User Tidak Ditemukan';
+$nik = $_SESSION['nik'];
+$username = tampil("SELECT username FROM masyarakat WHERE nik = $nik")[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@ $username = tampil("SELECT username FROM masyarakat WHERE nik = '{$_SESSION['nik
                 </svg>
                 <div class="flex flex-col items-start">
                     <span class="font-bold text-green-700 text-base">
-                        <?php echo $username; ?>
+                        <?php echo $username["username"]; ?>
                     </span>
                     <span class="text-gray-600 text-sm">
                         masyarakat
