@@ -11,7 +11,6 @@
 </head>
 <body class="bg-gradient-to-br from-green-200 via-green-50 to-green-400 min-h-screen flex justify-center">
     <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl border border-green-200 p-10 w-full max-w-2xl relative flex flex-col items-center animate-fade-in mt-32 mb-10">
-        <!-- My Istri -->
         <div class="relative flex flex-col items-center z-10 mb-6">
             <!-- Glow/Gradient effect -->
             <div class="absolute w-40 h-40 rounded-full bg-gradient-to-tr from-green-300 via-green-100 to-green-400 blur-2xl opacity-70 -z-10"></div>

@@ -91,7 +91,7 @@ if ($tanggapan && $tanggapan['id_petugas']) {
         <tr>
             <th>Foto</th>
             <td>
-                <?php if ($data["foto"] && $data["foto"] != "default.jpg"): ?>
+                <?php if ($data["foto"] !== 'default.jpg'): ?>
                     <img src="../assets/img/<?= htmlspecialchars($data['foto']) ?>" alt="Foto Pengaduan" class="foto" style="max-width:220px;max-height:180px;border-radius:8px;border:1px solid #ccc;">
                 <?php else: ?>
                     <span style="color:#888;font-style:italic;">tidak ada foto</span>
@@ -145,7 +145,7 @@ if ($tanggapan && $tanggapan['id_petugas']) {
         </div>
     </div>
     <div class="ttd">
-        <div class="jabatan"><?php echo $petugas["level"] ?></div>
+        <div class="jabatan"><?php echo $petugas["level"] ?? "petugas tidak ada" ?></div>
         <div class="nama"><?= $petugas ? htmlspecialchars($petugas['nama_petugas']) : '____________________' ?></div>
     </div>
 </div>
